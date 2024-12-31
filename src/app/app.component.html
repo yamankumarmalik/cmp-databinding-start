@@ -3,14 +3,20 @@
     (serverCreated)="onServerAdded($event)"
     (bpCreated)="onBlueprintAdded($event)"
   ></app-cockpit>
+
   <hr />
   <div class="row">
+    <button type="button" class="btn btn-primary" (click)="changeValue()">
+      Change Input Value
+    </button>
+    <button type="button" class="btn btn-danger" (click)="destroyFirstComponent()">Delete first Component</button>
     <div class="col-xs-12">
       <app-server-element
         *ngFor="let serverElement of serverElements"
         [srvElement]="serverElement"
+        [name]="serverElement.name"
       >
-        <p>
+        <p #contentParagraph>
           <strong *ngIf="serverElement.type === 'server'" style="color: red">{{
             serverElement.content
           }}</strong>

@@ -28,4 +28,13 @@ export class AppComponent {
       content: blueprintData.serverContent,
     });
   }
+
+  changeValue(): void {
+    this.serverElements[0].name = 'Content';
+    console.log(this.serverElements);
+  }
+
+  destroyFirstComponent(): void {
+    this.serverElements.splice(0, 1);
+  }
 }
